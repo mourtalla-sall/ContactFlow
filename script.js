@@ -2,10 +2,11 @@
 const accueil1 = document.getElementById('link-home')
 const contact1 = document.getElementById('link-contact')
 
-const pages ={ accueil: "<h1>Bienvenue sur l'Accueil</h1><p>C'est la page principale.</p>",
-    contact: "<h1>Contactez-nous</h1><p>Voici un formulaire imaginaire...</p>"
+const pages ={ accueil: "<h1>Bienvenue sur ContactFlow</h1>",
+    contact: "<form><input type ='password' name = 'password'>mot de passe <input type ='email' name = 'email'>Adresse Mail "
 }
 const rootdiv = document.getElementById("root")
+
 
 
 
