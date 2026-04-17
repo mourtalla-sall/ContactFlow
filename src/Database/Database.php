@@ -1,7 +1,7 @@
 <?php
 // Login à la base de donnée avec des variables, faciles a modifié si changement de mot de passe ou de db
 
-namespace ContactFlow;
+namespace ContactFlow\Database;
 
 
 class Database {
@@ -12,7 +12,7 @@ class Database {
         $this->pdo = new \PDO(
             "mysql:host=mourtalla-sall.students-laplateforme.io;dbname=mourtalla-sall_ContactFlow;charset=utf8",
             'contactFlow',
-            'contactFlow@',
+            '7!2p3of9B',
             [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
         );
     }

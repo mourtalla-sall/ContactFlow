@@ -10,21 +10,21 @@ class Controller {
         $this->contactModel = new Contact();
     }
 
-    public function addContact() {
+    function addContact() {
         $error = '';
         if (isset($_POST['submit'])) {
             $firstName = trim($_POST['firstName']); 
             $lastName = trim($_POST['lastName']);
             $email = trim($_POST['email']);
-            $telephone = trim($_POST['password']) ;
+            $telephone = trim($_POST['telephone']) ;
           
             if (empty($firstName) || empty($lastName) || empty($email) || empty($telephone)) {
                 $error = "Tous les champs sont requis";
           
             } else {
                 if ($this->contactModel->createContact($firstName, $lastName, $email, $telephone)) {
-                    header("Location: index.php?page=login&success=1");
-                    exit();
+                    // header("Location: index.php?page=login&success=1");
+                    // exit();
                 } else {
                     $error = "Erreur lors de l'enregistrement du contact";
                 }
@@ -65,7 +65,7 @@ class Controller {
      public function deleteContact() {
         $contactModel = new Contact();
         $contactModel->delete((int)$_GET['id']);
-        header('Location: index.php?page=admin/dashboard');
-        exit;
+        // header('Location: index.php?page=admin/dashboard');
+        // exit;
     }
 }

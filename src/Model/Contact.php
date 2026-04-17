@@ -2,7 +2,7 @@
 
 namespace ContactFlow\Model;
 
-use ContactFlow\Database;
+use ContactFlow\Database\Database;
 
 use \PDO;
 
