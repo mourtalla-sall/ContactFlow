@@ -20,11 +20,11 @@ class Contact {
     }
 
     public function createContact($firstName, $lastName, $email, $telephone ) {
-        $data = $this->pdo->prepare('INSERT INTO contact (firstName, lastName, email, telephone) VALUES (:firstName, :lastName, :email, :telephone,)');
+        $data = $this->pdo->prepare('INSERT INTO contact (firstName, lastName, email, telephone) VALUES (:firstName, :lastName, :email, :telephone)');
         $data->bindValue(':firstName', $this->securityInput($firstName), PDO::PARAM_STR);
         $data->bindValue(':lastName', $this->securityInput($lastName), PDO::PARAM_STR);
         $data->bindValue(':email', $this->securityInput($email), PDO::PARAM_STR);
-        $data->bindValue(':telephone', $this->securityInput($telephone), PDO::PARAM_INT);
+        $data->bindValue(':telephone', $this->securityInput($telephone), PDO::PARAM_STR);
    
         return $data->execute();
     }
@@ -48,9 +48,7 @@ class Contact {
         $data->bindValue(':lastName', $this->securityInput($lastName), PDO::PARAM_STR);
         $data->bindValue(':email', $this->securityInput($email), PDO::PARAM_STR);
         $data->bindValue(':telephone', $this->securityInput($telephone), PDO::PARAM_INT);
-
         $data->bindValue(':id', $id,PDO::PARAM_INT);
-
         return $data->execute();
     }
 

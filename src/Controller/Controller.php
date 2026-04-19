@@ -10,29 +10,25 @@ class Controller {
         $this->contactModel = new Contact();
     }
 
-    function addContact() {
+    function addContact($firstName, $lastName, $email, $telephone) {
         $error = '';
-        if (isset($_POST['submit'])) {
-            $firstName = trim($_POST['firstName']); 
-            $lastName = trim($_POST['lastName']);
-            $email = trim($_POST['email']);
-            $telephone = trim($_POST['telephone']) ;
-          
-            if (empty($firstName) || empty($lastName) || empty($email) || empty($telephone)) {
-                $error = "Tous les champs sont requis";
-          
+
+        if (empty($firstName) || empty($lastName) || empty($email) || empty($telephone)) {
+            $error = "Tous les champs sont requis";
+        } else {
+            if ($this->contactModel->createContact($firstName, $lastName, $email, $telephone)) {
+                return json_encode('ça a marché');
             } else {
-                if ($this->contactModel->createContact($firstName, $lastName, $email, $telephone)) {
-                    // header("Location: index.php?page=login&success=1");
-                    // exit();
-                } else {
-                    $error = "Erreur lors de l'enregistrement du contact";
-                }
+                $error = "Erreur lors de l'enregistrement du contact";
             }
         }
+
         return $error;
     }
 
+    public function getContact() {
+     return json_encode($this->contactModel->getAll());
+    }
 
     public function updateContact() {
     
