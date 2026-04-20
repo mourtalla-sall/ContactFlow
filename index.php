@@ -11,7 +11,7 @@ if (is_null($data)) {
     $data = $_POST;
 }
 
-//  détecte un vrai GET (body vide)
+//  détecte un vrai GET 
 if (empty($json) && empty($_POST)) {
     echo $toto->getContact();
     exit;
