@@ -1,6 +1,6 @@
 const Contact = () => {
     return `
-    <h1>Contactflow</h1>
+    <h1>ContactFlow</h1>
 
     <div class="toolbar">
         <div class="search-container">

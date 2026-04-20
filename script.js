@@ -1,8 +1,7 @@
-
 const accueil1 = document.getElementById('link-home')
 const contact1 = document.getElementsByClassName('link-contact')
 
-const BASE_URL = "/Contactflow"
+const BASE_URL = "/ContactFlow"
 
 const routes = [
     { path : BASE_URL + "/", file : "./pages/Home.js" },
@@ -60,6 +59,7 @@ const router = async () => {
 };
 
 router()
+    
 
 // function changerpage(nomDeLaPage) {
 //     rootdiv.innerHTML=pages[nomDeLaPage]
