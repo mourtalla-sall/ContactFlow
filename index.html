@@ -1,98 +1,79 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contactflow</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">Contactflow</a>
-
                 <ul class="nav-center">
-                    
-                    <li><a href="/ContactFlow/" id ="link-home">Accueil</a></li>
-                    <li><a href="/ContactFlow/contact" class="link-contact">contact</a></li>
-                    <li><a href="/ContactFlow/fav">favoris</a></li>
+                    <li><a href="#">contact</a></li>
+                    <li><a href="#">favoris</a></li>
                     <li><a href="#">exporter CSV</a></li>
                 </ul>
-
-                <div class="nav-right">
-                    <div class="search-box">
-                        <i class="material-icons">search</i>
-                        <input type="text" placeholder="rechercher">
-                    </div>
-                    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="search rechercher">
                 </div>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
             <div class="mobile-menu" id="mobileMenu">
                 <ul>
                     <li><a href="#">contact</a></li>
                     <li><a href="#">favoris</a></li>
                     <li><a href="#">exporter CSV</a></li>
-                    <li>
-                    </li>
                 </ul>
                 <div class="mobile-search">
-                    <i class="material-icons">search</i>
-                    <input type="text" placeholder="rechercher">
+                    <input type="text" placeholder="search rechercher">
                 </div>
             </div>
         </nav>
-    </header>
 
-    <main id ="root">
-       
-    </main>
+        <section class="hero">
+            <h1>Contactflow</h1>
+            <p>Le Lorem Ipsum est du texte latin utilisé pour la composition et la mise en page avant impression</p>
+            <div class="hero-buttons">
+                <button class="btn-dark">Voir les contact</button>
+                <button class="btn-dark" id="toggleTheme">Changer couleur</button>
+            </div>
+        </section>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h2>Contactflow</h2>
-                <p>Gérez vos contacts simplement, rapidement et efficacement.</p>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h2>Contactflow</h2>
+                    <p>Gérez vos contacts facilement et efficacement avec Contactflow.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Favoris</a></li>
+                        <li><a href="#">Exporter CSV</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Aide</a></li>
+                        <li><a href="#">Confidentialité</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="/ContactFlow/">Accueil</a></li>
-                    <li><a href="/ContactFlow/contact" class="link-contact">contact</a></li>
-                    <li><a href="#">Favoris</a></li>
-                    <li><a href="#">Exporter</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p> 2026 Contactflow. Tous droits réservés.</p>
             </div>
-            <div class="footer-links">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Aide</a></li>
-                    <li><a href="#">Confidentialité</a></li>
-                    <li><a href="#">Mentions légales</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Contactflow — Tous droits réservés</p>
-        </div>
-    </footer>
+        </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const hamburger = document.getElementById('hamburger');
-            menu.classList.toggle('open');
-            hamburger.classList.toggle('active');
-        }
-    </script>
-</body>
-</html>
+        <script src="index.js"></script>
+    </body>
+    </html>

@@ -28,3 +28,6 @@ $email = htmlspecialchars(trim($data['email']));
 $telephone = htmlspecialchars(trim($data['telephone']));
 
 echo $toto->addContact($firstName, $lastName, $email, $telephone);
+
+
+

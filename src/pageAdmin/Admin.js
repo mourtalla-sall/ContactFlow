@@ -42,39 +42,11 @@ function fetchcall() {
 
 }
 
-async function getDataContact() {
-    const tableauxContact = document.getElementById('tableauxContact');
-    
-    try {
-        const response = await fetch('index.php');
-        
-        if (!response.ok) {
-            throw new Error('Erreur: ' + response.status);
-        }
+//  pagination remplie par getDataContact
+let pagination = [];
+let current_page = 1;
+const pagination_per_page = 2;
 
-        const dataContact = await response.json();
-
-        tableauxContact.innerHTML = '';
-
-        dataContact.forEach(contact => {
-            tableauxContact.innerHTML += 
-                '<tr>' +
-                    '<td>' + contact.firstName + '</td>' +
-                    '<td>' + contact.lastName + '</td>' +
-                    '<td>' + contact.email + '</td>' +
-                    '<td>' + contact.telephone + '</td>' +
-                '</tr>';
-        });
-
-    } catch (error) {
-        console.error('ERREUR:', error.message);
-    }
-}
-const pagination = [
-  
-];
-var current_page = 1;
-var pagination_per_page = 3;
 function totNumPages() {
   return Math.ceil(pagination.length / pagination_per_page);
 }
@@ -91,39 +63,78 @@ function nextPage() {
     change(current_page);
   }
 }
+
 function change(page) {
-    var btn_next = document.getElementById('btn_next');
-    var btn_prev = document.getElementById('btn_prev');
-    var listing_table = document.getElementById('TableList');
-    var page_span = document.getElementById('page');
+    let btn_next = document.getElementById('btn_next');
+    let btn_prev = document.getElementById('btn_prev');
+    let listing_table = document.getElementById('tableauxContact'); 
+    let page_span = document.getElementById('page');
+
     if (page < 1) page = 1;
     if (page > totNumPages()) page = totNumPages();
-    listing_table.innerHTML = '';
-    for (var i = (page - 1) * pagination_per_page; i < (page * pagination_per_page); i++) {
-        listing_table.innerHTML += pagination[i].number + '<br>';
-    }
-    page_span.innerHTML = page;
-    if (page == 1) {
-        btn_prev.style.visibility = 'hidden';
-    } else {
-        btn_prev.style.visibility = 'visible';
-    }
-    if (page == totNumPages()) {
-        btn_next.style.visibility = 'hidden';
-    } else {
-        btn_next.style.visibility = 'visible';
-    }
-    }
-    window.onload = function() {
-    change(1);
-    };
 
+    listing_table.innerHTML = '';
+
+    // affiche les contacts de la page courante
+    let debut = (page - 1) * pagination_per_page;
+    var fin = page * pagination_per_page;
+    for (var i = debut; i < fin && i < pagination.length; i++) {
+        listing_table.innerHTML +=
+            '<tr>' +
+                '<td>' + pagination[i].firstName + '</td>' +
+                '<td>' + pagination[i].lastName + '</td>' +
+                '<td>' + pagination[i].email + '</td>' +
+                '<td>' + pagination[i].telephone + '</td>' +
+            '</tr>';
+    }
+
+    if (page_span) page_span.innerHTML = page + ' / ' + totNumPages();
+        if (btn_prev) {
+            if (page == 1) {
+                btn_prev.style.visibility = 'hidden';
+            } else {
+                btn_prev.style.visibility = 'visible';
+            }
+        }
+
+        if (btn_next) {
+            if (page == totNumPages()) {
+                btn_next.style.visibility = 'hidden';
+            } else {
+                btn_next.style.visibility = 'visible';
+            }
+        }
+    }
+
+async function getDataContact() {
+    try {
+        const response = await fetch('index.php');
+        
+        if (!response.ok) {
+            throw new Error('Erreur: ' + response.status);
+        }
+
+        const dataContact = await response.json();
+        console.log(dataContact);
+
+        // remplit pagination avec les contacts
+        pagination = dataContact;
+
+        // affiche la première page
+        change(1);
+
+    } catch (error) {
+        console.error('ERREUR:', error.message);
+    }
+}
+
+// boutons pagination
+let btn_prev = document.getElementById('btn_prev');
+let btn_next = document.getElementById('btn_next');
+if (btn_prev) btn_prev.addEventListener('click', prevPage);
+if (btn_next) btn_next.addEventListener('click', nextPage);
 
 getDataContact(); 
-nextPage()
 fetchcall();
-
- 
-
 
 });
