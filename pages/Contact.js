@@ -1,0 +1,61 @@
+const Contact = () => {
+    return `
+    <h1>Contactflow</h1>
+
+    <div class="toolbar">
+        <div class="search-container">
+            <input type="text" placeholder="rechercher un contact">
+            <button class="search-btn"></button>
+        </div>
+        <button class="add-contact-btn">+ Add Contact</button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lamali</td>
+                    <td>Abdallah</td>
+                    <td>lamali@gmail.com</td>
+                    <td>Téléphone</td>
+                    <td class="actions">
+                        <span class="icon" title="Modifier"></span>
+                        <span class="icon" title="Supprimer"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rayane</td>
+                    <td>Benoudia</td>
+                    <td>rayane@gmail.com</td>
+                    <td>Téléphone</td>
+                    <td class="actions">
+                        <span class="icon" title="Modifier"></span>
+                        <span class="icon" title="Supprimer"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mourtalla</td>
+                    <td>Sall</td>
+                    <td>mourtalla@gmail.com</td>
+                    <td>Téléphone</td>
+                    <td class="actions">
+                        <span class="icon" title="Modifier"></span>
+                        <span class="icon" title="Supprimer"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    `
+}
+
+export default Contact
