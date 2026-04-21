@@ -27,7 +27,16 @@ function fetchcall() {
                     const result = await response.json();
                     const messageZone = document.getElementById('message-zone');
                     if (result.status === "success") {
+
                         messageZone.innerHTML = `<p class="success">${result.message}</p>`;
+                        let container  = document.getElementById('tableauxContact')
+                        let tr = document.createElement("tr")
+                        let td = document.createElement("td")
+
+                        tr.appendChild(td)
+                        td.innerHTML = "toto"
+                        container.appendChild(tr)
+
                     } else {
                         messageZone.innerHTML = `<p class="error">${result.message}</p>`;
                     }
